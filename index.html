@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>광주·전남 1,400평 직영 물류창고 임대 센터</title>
+    <!-- Pretendard 폰트 불러오기 -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <!-- 폰트어썸 아이콘 불러오기 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* [STEP 1] 브랜드 아이덴티티 및 디자인 시스템 반영 */
+        :root {
+            --primary-color: #0F3460;     /* Industrial Navy: 신뢰감과 안정감 */
+            --secondary-color: #E94560;   /* Crimson Red: 역동성과 시각적 주목도 */
+            --accent-yellow: #F4D03F;     /* Warm Amber: 가시성이 극대화되는 서브 포인트 */
+            --bg-color: #F4F6F9;          /* Ice Gray: 쾌적하고 청결한 위생 창고 */
+            --accent-color: #16A085;      /* Teal: 저온 및 안전 설비 포인트 */
+            --text-dark: #222222;
+            --text-gray: #666666;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pretendard', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* 네비게이션 및 헤더 */
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-item {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-gray);
+            cursor: pointer;
+            transition: color 0.3s;
+            padding-bottom: 5px;
+        }
+
+        .nav-item.active, .nav-item:hover {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        /* 페이지 섹션 제어 */
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        /* 공통 컴포넌트 스타일 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #c7324b;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: #0b2646;
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 50px;
+            font-size: 18px;
+        }
+
+        /* --------------------------------------------------
+           [STEP 2] 메인 페이지 스타일
+        -------------------------------------------------- */
+        /* Hero Section - Unsplash의 고해상도 대형 물류센터 외관 및 트럭 비주얼 적용 */
+        .hero {
+            background-image: linear-gradient(rgba(15, 52, 96, 0.88), rgba(15, 52, 96, 0.88)), url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1920&q=80');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            color: var(--white);
+            padding: 130px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+            line-height: 1.4;
+        }
+
+        .hero p {
+            font-size: 19px;
+            margin-bottom: 0px;
+            font-weight: 400;
+            opacity: 0.9;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero .address-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            margin-top: 24px;
+            letter-spacing: -0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 18px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        /* Key Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Location Bullet List Custom styling */
+        .location-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+            text-align: left;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .location-list li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .location-list li i {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--secondary-color);
+        }
+
+        /* Key Strength */
+        .strengths {
+            background-color: var(--white);
+        }
+
+        .strengths-list {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .strength-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            padding: 24px;
+            border-left: 6px solid var(--secondary-color);
+            background: var(--bg-color);
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .strength-item h3 {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .strength-item p {
+            color: var(--text-gray);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Social Proof & Contact Form */
+        .social-proof-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1200&q=80');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            color: var(--white);
+            text-align: center;
+            padding: 70px 20px;
+        }
+        
+        .social-proof-bg p {
+            font-size: 21px;
+            font-weight: 700;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .contact-box {
+            background: var(--white);
+            max-width: 600px;
+            margin: 60px auto 0 auto;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            color: var(--text-dark);
+            text-align: left;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-size: 14px;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .contact-box .btn {
+            width: 100%;
+            text-align: center;
+            border-radius: 6px;
+        }
+
+        /* 커스텀 성공 알림 모달 창 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-box {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-icon {
+            font-size: 50px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        .modal-desc {
+            color: var(--text-gray);
+            font-size: 15px;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .modal-close-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            color: var(--white);
+            font-weight: 700;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .modal-close-btn:hover {
+            background: #0b2646;
+        }
+
+        /* --------------------------------------------------
+           [STEP 3] 서브페이지 공통 및 개별 스타일
+        -------------------------------------------------- */
+        .sub-header {
+            color: var(--white);
+            padding: 65px 20px;
+            text-align: center;
+        }
+
+        /* 세련된 Unsplash 창고 시설(상온/저온/오피스) 내부 이미지 배너로 교체 */
+        .sub-header-1 {
+            background-image: linear-gradient(rgba(15, 52, 96, 0.88), rgba(15, 52, 96, 0.88)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+        }
+
+        /* 세련된 Unsplash 파레트 하이랙 적재 보관 및 위생 물류 전경 이미지 배너로 교체 */
+        .sub-header-2 {
+            background-image: linear-gradient(rgba(15, 52, 96, 0.88), rgba(15, 52, 96, 0.88)), url('https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1920&q=80');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+        }
+
+        /* 임대 및 상담 안내 기본 스타일 유지 */
+        .sub-header-3 {
+            background-color: var(--primary-color);
+        }
+
+        .sub-header h2 {
+            font-size: 34px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .sub-header p {
+            font-size: 17px;
+            opacity: 0.85;
+        }
+
+        .sub-body-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .sub-paragraph {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .sub-paragraph h3 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 12px;
+        }
+
+        .sub-paragraph ul {
+            list-style: none;
+            padding-left: 5px;
+        }
+
+        .sub-paragraph ul li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 14px;
+            font-size: 16px;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .sub-paragraph ul li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--secondary-color);
+        }
+
+        .sub-cta-section {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        /* FAQ 스타일 */
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .faq-q {
+            font-weight: 800;
+            font-size: 17px;
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .faq-a {
+            color: var(--text-gray);
+            padding-left: 28px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* 푸터 */
+        footer {
+            background-color: #111;
+            color: #777;
+            padding: 50px 20px;
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid #222;
+        }
+
+        footer p {
+            line-height: 1.6;
+        }
+
+        @media (max-width: 992px) {
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 15px; }
+            .hero h1 { font-size: 28px; }
+            .hero p { font-size: 16px; }
+            .hero .address-text { font-size: 15px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .hero-btns { flex-direction: column; gap: 10px; }
+            .sub-paragraph { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 헤더 내비게이션 -->
+    <header>
+        <div class="nav-container">
+            <div class="logo" onclick="switchPage('main')">
+                <i class="fa-solid fa-warehouse text-secondary-color" style="color: var(--secondary-color);"></i>
+                <span>광주전남식자재협동조합</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item active" id="menu-main" onclick="switchPage('main')">메인</li>
+                <li class="nav-item" id="menu-sub1" onclick="switchPage('sub1')">창고 시설 안내</li>
+                <li class="nav-item" id="menu-sub2" onclick="switchPage('sub2')">보관 및 다품목 관리</li>
+                <li class="nav-item" id="menu-sub3" onclick="switchPage('sub3')">임대 및 상담 안내</li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ==================================================
+         [MAIN PAGE] 메인 페이지 콘텐츠
+    ================================================== -->
+    <div id="page-main" class="page-content active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>광주·전남 물류의 중심,<br>직영 복합 창고와 풀스펙 설비로 완벽을 더하다</h1>
+            <p>중개 수수료 ZERO. 대규모 상온·저온 창고부터 지게차, 자동 랩핑기 등 물류 설비까지 모두 완비된 호남권 최고의 물류창고를 본사 직영 계약으로 가장 합리적으로 선점하세요.</p>
+            
+            <!-- 주소 표기 영역 (서브문구와 한칸 띄어 추가) -->
+            <div>
+                <span class="address-text">
+                    <i class="fa-solid fa-map-location-dot"></i>주소 : 광주광역시 평동산단8번로 28-6,10
+                </span>
+            </div>
+            
+            <div class="hero-btns">
+                <button class="btn btn-primary" onclick="switchPage('sub3')">실시간 임대 문의</button>
+            </div>
+        </section>
+
+        <!-- SUB1. Key Features -->
+        <section class="container">
+            <h2 class="section-title">주요 인프라 안내</h2>
+            <p class="section-subtitle">임차 시 즉시 이용 가능한 자사 보유 핵심 시설 및 장비 스펙</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fa-solid fa-building-shield feature-icon"></i>
+                    <h3>상온 800평 / 저온 400평 / 사무실 200평 보유</h3>
+                    <p>대량 적재가 가능한 쾌적한 상온창고와 급속냉동시설을 갖춘 저온창고, 현장 관리가 즉각 가능한 업무용 사무실까지 한곳에 완비되어 있어 비즈니스 효율을 비약적으로 높여줍니다.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-screwdriver-wrench feature-icon"></i>
+                    <h3>지게차, 랩핑기, 인테이너 등 최신 설비 상시 보유</h3>
+                    <p>파레트 적재 효율을 높여주는 인테이너와 지게차, 안전한 출고를 돕는 자동 랩핑기 및 테이핑기 등 다양한 물류 설비가 완비되어 있어 별도의 장비 투자 없이 즉시 고효율 작업이 가능합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-map-location-dot feature-icon"></i>
+                    <h3>평동산단 내 최고의 입지</h3>
+                    <ul class="location-list">
+                        <li><i class="fa-solid fa-location-dot"></i>쿠팡 전라광주센터 도보 30초</li>
+                        <li><i class="fa-solid fa-location-dot"></i>서광산ic 차량 5분</li>
+                        <li><i class="fa-solid fa-location-dot"></i>무안-광주 고속도로 차량 5분</li>
+                        <li><i class="fa-solid fa-location-dot"></i>평동역 차량 3분</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUB2. Key Strength -->
+        <section class="strengths">
+            <div class="container">
+                <h2 class="section-title">직영 창고만의 압도적 강점</h2>
+                <p class="section-subtitle">물류 비용은 낮추고, 보관 안전성은 극대화하는 이유</p>
+                <div class="strengths-list">
+                    <div class="strength-item">
+                        <div>
+                            <h3>유통 마진을 완전히 걷어낸 중개 수수료 ZERO 직접 계약</h3>
+                            <p>자사 소유의 물류창고를 임차인과 직접 계약하므로 불필요한 수수료 지출이 전혀 없으며, 보증금 및 임대 조건 협의가 유연하고 신속하게 이루어집니다.</p>
+                        </div>
+                    </div>
+                    <div class="strength-item">
+                        <div>
+                            <h3>공산품 보관에 용이한 상온창고부터 신선식품 및 식음료 보관을 위한 콜드체인 및 신선 보관 능력</h3>
+                            <p>단순 냉장보관을 넘어 신선식품, 식음료(과일, 농산물 등)의 고유 품질을 완벽히 보관할 수 있는 급속냉동시설을 보유하고 있어 온도에 민감한 프리미엄 품목도 리스크 없이 보관이 가능합니다.</p>
+                        </div>
+                    </div>
+                    <div class="strength-item">
+                        <div>
+                            <h3>5톤·11톤 대형 화물차도 여유로운 와이드 도크 및 동선 설계</h3>
+                            <p>부피가 큰 스티로폼, 일회용품, 대량의 생수 및 세제류가 신속히 입출고될 수 있도록 대형 차량 진입이 완벽히 보장되며, 상하차 대기 시간을 최소화하는 최적의 야드 동선을 자랑합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUB3. Social Proof & 상담 독려 -->
+        <section class="social-proof-bg">
+            <p>"호남권의 식음료 유통사부터 전국 대형 공산품 제조사 및 유망 이커머스 기업들까지 당사의 직영 물류창고 인프라에서 비즈니스 효과를 직접 경험하고 계십니다."</p>
+        </section>
+
+        <!-- 견적 신청 폼 및 바로 연락하기 버튼 추가 -->
+        <section class="container" style="padding-top: 0; margin-top: -20px;">
+            <div class="contact-box">
+                <h3 style="font-size: 22px; font-weight: 800; color: var(--primary-color); text-align: center; margin-bottom: 12px;">
+                    <i class="fa-solid fa-clipboard-question" style="color: var(--secondary-color); margin-right: 8px;"></i>직영 임대 가능 여부 조회 및 견적 신청
+                </h3>
+                
+                <!-- 견적 신청폼 제목 하단 "바로 연락하기 > 010-8859-4686" 삽입 완료 -->
+                <div style="text-align: center; margin-bottom: 25px;">
+                    <a href="tel:010-8859-4686" class="btn" style="background: var(--bg-color); color: var(--secondary-color); border: 1.5px solid var(--secondary-color); font-weight: 800; font-size: 16px; padding: 10px 20px; display: inline-flex; align-items: center; gap: 8px; border-radius: 50px;">
+                        <i class="fa-solid fa-phone-volume"></i> 바로 연락하기 > 010-8859-4686
+                    </a>
+                </div>
+
+                <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                    <div class="form-group">
+                        <label>기업명 / 담당자 성함</label>
+                        <input type="text" id="corpName" name="company" placeholder="예: 주식회사 유통 / 홍길동 팀장" required>
+                    </div>
+                    <div class="form-group">
+                        <label>연락처</label>
+                        <input type="tel" id="corpPhone" name="phone" placeholder="예: 010-1234-5678" required>
+                    </div>
+                    <div class="form-group">
+                        <label>주요 취급 품목</label>
+                        <select id="itemType" name="items" required>
+                            <option value="">품목 선택</option>
+                            <option value="식음료 (식용유/물엿 등)">식음료 (식용유/물엿 등)</option>
+                            <option value="경량 소모품 (스티로폼/일회용품)">경량 소모품 (스티로폼/일회용품)</option>
+                            <option value="생활용품 (생수/세제/물티슈)">생활용품 (생수/세제/물티슈)</option>
+                            <option value="기타 일반 화물">기타 일반 화물</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>희망 요구 조건 (필요 평수 등)</label>
+                        <textarea id="moreDetails" name="details" rows="4" placeholder="예: 상온 200평, 저온 50평 필요합니다. 지게차 지원 여부 확인 부탁드립니다."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">중개수수료 0원 직영 임대 문의 양식 작성</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- ==================================================
+         [SUB PAGE 1] 창고 시설 안내
+    ================================================== -->
+    <div id="page-sub1" class="page-content">
+        <!-- 창고 시설 고해상도 Unsplash 이미지 배너 적용 완료 -->
+        <div class="sub-header sub-header-1">
+            <h2>1,400평 직영 창고 시설 & 보유 설비 스펙</h2>
+            <p>상온 800평, 저온 400평의 웅장한 공간에 최신 물류 설비를 가득 채웠습니다.</p>
+        </div>
+        <div class="container" style="padding-top: 40px;">
+            <div class="sub-body-content">
+                <div class="sub-paragraph">
+                    <h3>1. 용도별 최적화된 복합 공간 구성</h3>
+                    <ul>
+                        <li><strong>상온창고 (800평):</strong> 층고 8m 이상의 탁 트인 공간으로 대량의 생수, 세제, 스티로폼, 일회용품 등 다품목을 대량 적재 및 분류하기에 최적화된 넓은 동선 확보.</li>
+                        <li><strong>저온창고 (400평):</strong> 신선도 유지가 절대적인 식품 및 원료 보관을 위한 최고 사양의 급속냉동시설 상시 가동 및 빈틈없는 온도 모니터링 시스템 구축.</li>
+                        <li><strong>오피스 공간 (200평):</strong> 입주사의 상주 관리 인력이나 유통 담당자가 쾌적하게 근무하며 물류 현장을 실시간으로 진두지휘할 수 있는 현대식 사무 공간 임대 연계.</li>
+                    </ul>
+                </div>
+
+                <div class="sub-paragraph">
+                    <h3>2. 초기 투자 비용을 제로로 만드는 보유 물류 설비 인프라</h3>
+                    <ul>
+                        <li><strong>상하차 및 이송 장비:</strong> 화물톤수별 신속한 이동 및 안전한 하역을 보장하는 최신 전동 지게차 인프라 상시 운용.</li>
+                        <li><strong>공간 효율 극대화 장비:</strong> 적재 품목의 손상 없이 다단 적재 및 규격화 보관을 가능하게 해주는 대규모 인테이너 배치를 통해 데드 스페이스(Dead Space) 원천 차단.</li>
+                    </ul>
+                </div>
+
+                <div class="sub-paragraph">
+                    <h3>3. 완벽한 출고 표준화를 위한 패킹 자동화 설비</h3>
+                    <ul>
+                        <li><strong>고성능 자동 랩핑기:</strong> 파레트 단위의 대형 화물을 흔들림 없이 단단하고 균일하게 패킹 및 고정해 주어 이동 중 파손 방지.</li>
+                        <li><strong>반자동 테이핑기 라인:</strong> 소형 박스부터 대형 화물 박스까지 신속하고 깔끔하게 마감 처리를 도와주어 현장 작업자의 포장 작업 속도 2배 이상 향상.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sub-cta-section">
+                <button class="btn btn-primary" onclick="switchPage('main')">보유 설비 및 공간 실물 보러가기 (현장 방문 예약)</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==================================================
+         [SUB PAGE 2] 보관 및 다품목 관리
+    ================================================== -->
+    <div id="page-sub2" class="page-content">
+        <!-- 보관 및 다품목 고해상도 Unsplash 이미지 배너 적용 완료 -->
+        <div class="sub-header sub-header-2">
+            <h2>다품목 맞춤 보관 솔루션 및 체계적 재고 관리</h2>
+            <p>무거운 식용유부터 부피 큰 스티로폼까지, 품목별 특성에 맞춘 완벽한 적재 솔루션</p>
+        </div>
+        <div class="container" style="padding-top: 40px;">
+            <div class="sub-body-content">
+                <div class="sub-paragraph">
+                    <h3>1. 중량물 및 액체 식품류의 안전한 파레트 적재</h3>
+                    <ul>
+                        <li>무게 중심이 무겁고 파손 시 유출 리스크가 큰 대용량 콩식용유, 물엿 제품들을 안정적으로 보관할 수 있는 견고한 바닥 하중 설계 및 하이랙 파레트 시스템 가동.</li>
+                        <li>액체류 제품 유출 방지 및 완벽한 위생 관리를 위한 주기적인 현장 바닥 청결 및 온도 관제 프로세스 실시간 유지.</li>
+                    </ul>
+                </div>
+
+                <div class="sub-paragraph">
+                    <h3>2. 경량 소모품 및 부피 화물의 공간 효율화</h3>
+                    <ul>
+                        <li>부피가 매우 크고 습기나 냄새에 민감한 물티슈, 세제, 생수 박스 및 스티로폼, 일회용 용기 품목들을 오염원으로부터 완벽히 분리 격리 보관.</li>
+                        <li>보유 중인 대량의 인테이너 설비를 적극 활용하여 형태가 쉽게 찌그러지는 소모품들도 적재 위험 없이 안전하게 다단 적재하여 임차 공간 대비 보관 효율 다각화.</li>
+                    </ul>
+                </div>
+
+                <div class="sub-paragraph">
+                    <h3>3. 입출고 오류 제로를 위한 실시간 재고 매칭 및 대응</h3>
+                    <ul>
+                        <li>다양한 제품군이 혼선되지 않도록 명확한 품목별 구역 구획화 및 직영 관리자의 엄격한 검수 시스템을 도입하여 출고 로스(Loss)율 0% 달성.</li>
+                        <li>갑작스러운 물동량 변동이나 품목 교체 이슈가 발생하더라도, 외부 대행사와 달리 직영 오피스(200평)와 창고 현장 인력이 다이렉트로 연동되어 즉각적인 피드백과 유연한 처리가 가능.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sub-cta-section">
+                <button class="btn btn-primary" onclick="switchPage('main')">우리 회사 품목 맞춤형 공간 배치 및 보관 상담하기</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==================================================
+         [SUB PAGE 3] 임대 및 상담 안내
+    ================================================== -->
+    <div id="page-sub3" class="page-content">
+        <div class="sub-header sub-header-3">
+            <h2>직영 임대 계약 프로세스 및 빠른 견적 신청</h2>
+            <p>거품 없는 임대료, 건물주 직접 계약으로 안전하고 신속하게 입주하세요.</p>
+        </div>
+        <div class="container" style="padding-top: 40px;">
+            <div class="sub-body-content">
+                <div class="sub-paragraph">
+                    <h3>1. 단 3단계로 끝나는 다이렉트 임대 프로세스</h3>
+                    <ul>
+                        <li><strong>STEP 01. 온라인/전화 접수:</strong> 필요한 상온/저온 임차 평수와 사용 희망 설비(지게차/랩핑기 등), 주요 품목군을 입력하여 간편 접수 후 실시간 상담을 진행합니다.</li>
+                        <li><strong>STEP 02. 현장 실사 및 조율:</strong> 고속도로 IC 근접 요충지에 위치한 직영 창고에 직접 동행 방문하여 8m 층고 공간, 급속냉동고 시설, 자동 설비 스펙을 눈으로 확인하고 구체적인 조건을 조율합니다.</li>
+                        <li><strong>STEP 03. 직영 계약 및 즉시 입주:</strong> 복잡한 부동산 대행사나 중개 피드백 없이 소유주와 직접 계약을 체결하여 즉시 물품 입고 및 상주 사무실 세팅을 시작합니다.</li>
+                    </ul>
+                </div>
+
+                <div class="sub-paragraph">
+                    <h3>2. 직영 임대 관련 핵심 FAQ (자주 묻는 질문)</h3>
+                    <div class="faq-item">
+                        <div class="faq-q">Q. 부동산 중개 수수료가 정말 0원인가요?</div>
+                        <div class="faq-a">A. 네, 그렇습니다. 당사가 소유하고 관리하는 물류 자산을 임차인에게 다이렉트로 임대하기 때문에 중간 마진이나 부동산 법정 중개 비용이 단 1원도 발생하지 않습니다.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">Q. 스티로폼이나 일회용품처럼 부피가 매우 큰 물품도 랙이나 인테이너 활용이 효율적인가요?</div>
+                        <div class="faq-a">A. 물론입니다. 가볍고 적재 형상이 무너지기 쉬운 소모품류는 당사가 구비한 대량의 인테이너 장비 안에 차곡차곡 수납하여 안전하게 층고 높이 적재할 수 있도록 현장 공간 레이아웃 설계를 직접 지원해 드립니다.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">Q. 유통 시즌별로 상온과 저온 창고의 이용 평수 비율을 다르게 계약할 수 있나요?</div>
+                        <div class="faq-a">A. 자사 직영 운영 방식이기에 가능한 최선의 장점입니다. 입주사 물동량 성수기/비성수기 주기에 맞춰 상온 800평, 저온 400평 내에서 유연한 공간 사용 배분과 사용 조건 조율을 적극적으로 협의 지원해 드립니다.</div>
+                    </div>
+                </div>
+
+                <div class="sub-paragraph">
+                    <h3>3. 오시는 길 및 직영 현장 관리 오피스 정보</h3>
+                    <ul>
+                        <li><strong>최적의 교통망 입지:</strong> 광주광역시 및 전남 주요 거점 IC 진출입로에서 대형 11톤 트레일러 차량 진입 시 정체 없이 다이렉트로 도달 가능한 최고 효율의 호남권 물류 요충지.</li>
+                        <li><strong>와이드 동선 야드:</strong> 상하차 도크(Dock) 진입 시 병목을 없애 주는 전면 와이드 콘크리트 야드로 화물 차량 상시 회차 및 대기 주차 공간 확보 완비.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sub-cta-section">
+                <button class="btn btn-primary" onclick="scrollToContact()">중개수수료 0원 직영 임대 신청하기 (양식 작성)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 커스텀 성공 알림 모달 마크업 -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-box">
+            <i class="fa-solid fa-circle-check modal-icon"></i>
+            <div class="modal-title">상담 신청 완료</div>
+            <div class="modal-desc">
+                보내주신 품목 및 요구 조건을 토대로 광주전남식자재협동조합 전담 본부 실무진이 면밀히 검토하여 24시간 이내에 직접 연락드리겠습니다.
+            </div>
+            <button class="modal-close-btn" onclick="closeSuccessModal()">확인</button>
+        </div>
+    </div>
+
+    <!-- 푸터 영역 -->
+    <footer>
+        <p>© 2026 광주전남식자재협동조합 임대 운영 본부. All Rights Reserved.</p>
+        <p style="margin-top: 5px; font-size: 12px; color: #555;">본 사이트는 직영 소유 자산 임대 안내 공식 채널이며, 부당 중개 및 수수료 청구 행위를 일절 방지하기 위한 소유주 다이렉트 창구입니다.</p>
+    </footer>
+
+    <!-- 페이지 전환 제어 및 이벤트 처리 스크립트 -->
+    <script>
+        function switchPage(pageId) {
+            // 모든 페이지 숨기기
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // 모든 네비게이션 아이템 활성화 해제
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+
+            // 선택된 페이지 및 메뉴 활성화
+            document.getElementById('page-' + pageId).classList.add('active');
+            document.getElementById('menu-' + pageId).classList.add('active');
+
+            // 화면 최상단으로 스크롤 이동
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function scrollToContact() {
+            // 메인 페이지로 이동 후 문의 폼으로 스크롤
+            switchPage('main');
+            setTimeout(() => {
+                const contactBox = document.querySelector('.contact-box');
+                contactBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
+        }
+
+        // 모달 관리 핸들러 (브라우저 alert 대체)
+        function showSuccessModal() {
+            const modal = document.getElementById('successModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // 뒷배경 스크롤 방지
+        }
+
+        function closeSuccessModal() {
+            const modal = document.getElementById('successModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // 스크롤 복구
+        }
+
+        // ★★★ 구글 Apps Script 웹앱 주소 (아래 GAS 배포 후 여기에 붙여넣기) ★★★
+        const GAS_URL = "PASTE_YOUR_GAS_URL_HERE";
+
+        // 임대 신청 문의 폼 제출 이벤트 제어 → 구글시트 전송
+        async function handleContactSubmit(event) {
+            event.preventDefault();
+
+            const corpName = document.getElementById('corpName').value.trim();
+            const corpPhone = document.getElementById('corpPhone').value.trim();
+            const itemType = document.getElementById('itemType').value;
+            const moreDetails = document.getElementById('moreDetails').value.trim();
+
+            // 필수 항목 검증
+            if (!corpName || !corpPhone || !itemType) {
+                return;
+            }
+
+            // 보낼 데이터 (Apps Script 시트 컬럼과 매칭)
+            const payload = {
+                timestamp: new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }),
+                company: corpName,
+                phone: corpPhone,
+                items: itemType,
+                details: moreDetails
+            };
+
+            const form = document.getElementById('contactForm');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = '전송 중...';
+
+            try {
+                if (!GAS_URL || GAS_URL.indexOf('PASTE_') === 0) {
+                    // 아직 구글시트 주소가 연결되지 않은 상태
+                    throw new Error('GAS_URL 미설정');
+                }
+                // 구글 Apps Script 로 전송
+                // (mode:'no-cors' → 크로스 도메인 CORS 오류 없이 안전하게 전송)
+                await fetch(GAS_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: JSON.stringify(payload)
+                });
+
+                form.reset();
+                showSuccessModal();
+            } catch (err) {
+                console.error('상담 신청 전송 실패:', err);
+                alert('전송 중 문제가 발생했습니다.\n잠시 후 다시 시도하시거나, 상단의 전화(010-8859-4686)로 문의해 주세요.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        }
+    </script>
+</body>
+</html>
