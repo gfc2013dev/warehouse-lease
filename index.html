@@ -587,10 +587,18 @@
         }
 
         @media (max-width: 768px) {
-            .nav-container { flex-direction: column; gap: 15px; }
+            /* 상단 메뉴: 4개 항목이 좁은 화면에서 각각 한 줄씩, 2줄로 가지런히 줄바꿈 */
+            .nav-container { flex-direction: column; gap: 12px; padding: 14px 16px; }
+            .nav-menu { flex-wrap: wrap; justify-content: center; gap: 6px 14px; width: 100%; }
+            .nav-item { white-space: nowrap; font-size: 14px; padding-bottom: 3px; }
+            .logo { font-size: 18px; }
+            /* 히어로·본문 여백을 모바일에 맞게 축소 */
+            .hero { padding: 90px 20px; }
             .hero h1 { font-size: 28px; }
             .hero p { font-size: 16px; }
-            .hero .address-text { font-size: 15px; }
+            .hero .address-text { font-size: 14px; }
+            .container { padding: 50px 20px; }
+            .section-title { font-size: 26px; }
             .features-grid { grid-template-columns: 1fr; }
             .hero-btns { flex-direction: column; gap: 10px; }
             .sub-paragraph { padding: 25px; }
