@@ -203,6 +203,85 @@
             margin-top: 35px;
         }
 
+        /* 히어로 하단 즉시 상담 가로폼 */
+        .quick-form-section {
+            padding: 0 20px;
+        }
+
+        .quick-form-bar {
+            max-width: 1200px;
+            margin: -45px auto 0;
+            background: var(--white);
+            border-radius: 14px;
+            box-shadow: 0 14px 40px rgba(0,0,0,0.14);
+            padding: 22px 26px 24px;
+            position: relative;
+            z-index: 20;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .quick-form-head {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .quick-form-head h2 {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+
+        .quick-form-head p {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-top: 4px;
+        }
+
+        .quick-form {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1.1fr 1.3fr auto;
+            gap: 12px;
+            align-items: end;
+        }
+
+        .qf-field label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 6px;
+        }
+
+        .qf-field input, .qf-field select {
+            width: 100%;
+            padding: 11px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .qf-field input:focus, .qf-field select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .quick-form button {
+            white-space: nowrap;
+            padding: 12px 24px;
+            height: 44px;
+        }
+
+        @media (max-width: 900px) {
+            .quick-form { grid-template-columns: 1fr 1fr; }
+            .quick-form button { grid-column: 1 / -1; width: 100%; }
+        }
+
+        @media (max-width: 560px) {
+            .quick-form-bar { margin-top: 0; border-radius: 12px; padding: 20px; }
+            .quick-form { grid-template-columns: 1fr; }
+        }
+
         /* Key Features */
         .features-grid {
             display: grid;
@@ -594,8 +673,8 @@
             .nav-menu { flex-wrap: wrap; justify-content: center; gap: 6px 14px; width: 100%; }
             .nav-item { white-space: nowrap; font-size: 14px; padding-bottom: 3px; }
             .logo { font-size: 18px; }
-            /* 히어로·본문 여백을 모바일에 맞게 축소 */
-            .hero { padding: 90px 20px; }
+            /* 히어로·본문 여백을 모바일에 맞게 축소 (폼이 더 빨리 보이도록) */
+            .hero { padding: 60px 20px; }
             .hero h1 { font-size: 28px; }
             .hero p { font-size: 16px; }
             .hero .address-text { font-size: 14px; }
@@ -642,7 +721,42 @@
             </div>
             
             <div class="hero-btns">
-                <button class="btn btn-primary" onclick="switchPage('sub3')">실시간 임대 문의</button>
+                <button class="btn btn-primary" onclick="document.getElementById('quickForm').scrollIntoView({behavior:'smooth', block:'center'})">실시간 임대 문의</button>
+            </div>
+        </section>
+
+        <!-- 히어로 바로 아래: 스크롤·클릭 없이 즉시 작성하는 가로형 상담 폼 -->
+        <section class="quick-form-section">
+            <div class="quick-form-bar">
+                <div class="quick-form-head">
+                    <h2><i class="fa-solid fa-bolt" style="color: var(--secondary-color);"></i> 1분 임대 견적 문의</h2>
+                    <p>중개수수료 0원 · 아래 항목만 입력하면 담당자가 빠르게 연락드립니다.</p>
+                </div>
+                <form id="quickForm" class="quick-form" onsubmit="handleContactSubmit(event)">
+                    <div class="qf-field">
+                        <label>기업명 / 담당자</label>
+                        <input type="text" name="company" placeholder="예: (주)유통 홍길동" required>
+                    </div>
+                    <div class="qf-field">
+                        <label>연락처</label>
+                        <input type="tel" name="phone" placeholder="010-1234-5678" required>
+                    </div>
+                    <div class="qf-field">
+                        <label>취급 품목</label>
+                        <select name="items" required>
+                            <option value="">선택</option>
+                            <option value="식음료 (식용유/물엿 등)">식음료 (식용유/물엿 등)</option>
+                            <option value="경량 소모품 (스티로폼/일회용품)">경량 소모품 (스티로폼/일회용품)</option>
+                            <option value="생활용품 (생수/세제/물티슈)">생활용품 (생수/세제/물티슈)</option>
+                            <option value="기타 일반 화물">기타 일반 화물</option>
+                        </select>
+                    </div>
+                    <div class="qf-field">
+                        <label>필요 평수·조건 <span style="font-weight: 400; color: var(--text-gray);">(선택)</span></label>
+                        <input type="text" name="details" placeholder="예: 상온 200평, 지게차 필요">
+                    </div>
+                    <button type="submit" class="btn btn-primary">견적 문의</button>
+                </form>
             </div>
         </section>
 
@@ -951,33 +1065,41 @@
         const GAS_URL = "https://script.google.com/macros/s/AKfycby-KSmtOPr0PrBzDIuTDoBw_K3KvTp--jTqF5og7PE10c68NOBpuMMPbcJ0Qinu1pGT-A/exec";
 
         // 임대 신청 문의 폼 제출 이벤트 제어 → 구글시트 전송
+        // (상단 가로폼 #quickForm, 하단 상세폼 #contactForm 공용)
         async function handleContactSubmit(event) {
             event.preventDefault();
+            const form = event.target.closest('form');
 
-            const corpName = document.getElementById('corpName').value.trim();
-            const corpPhone = document.getElementById('corpPhone').value.trim();
-            const itemType = document.getElementById('itemType').value;
-            const moreDetails = document.getElementById('moreDetails').value.trim();
+            // 폼 안에서 name 으로 값 읽기
+            const val = (name) => {
+                const el = form.querySelector('[name="' + name + '"]');
+                return el ? el.value.trim() : '';
+            };
+            const company = val('company');
+            const phone   = val('phone');
+            const items   = val('items');
+            const details = val('details');
 
             // 필수 항목 검증
-            if (!corpName || !corpPhone || !itemType) {
+            if (!company || !phone || !items) {
                 return;
             }
 
             // 보낼 데이터 (Apps Script 시트 컬럼과 매칭)
             const payload = {
                 timestamp: new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }),
-                company: corpName,
-                phone: corpPhone,
-                items: itemType,
-                details: moreDetails
+                company: company,
+                phone: phone,
+                items: items,
+                details: details
             };
 
-            const form = document.getElementById('contactForm');
             const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.disabled = true;
-            submitBtn.textContent = '전송 중...';
+            const originalText = submitBtn ? submitBtn.textContent : '';
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = '전송 중...';
+            }
 
             try {
                 if (!GAS_URL || GAS_URL.indexOf('PASTE_') === 0) {
@@ -998,8 +1120,10 @@
                 console.error('상담 신청 전송 실패:', err);
                 alert('전송 중 문제가 발생했습니다.\n잠시 후 다시 시도하시거나, 상단의 전화(010-8859-4686)로 문의해 주세요.');
             } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalText;
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }
             }
         }
     </script>
