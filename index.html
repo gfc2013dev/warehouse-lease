@@ -44,6 +44,23 @@
             line-height: 1.6;
         }
 
+        /* 최상단 매매 문의 띠 */
+        .top-notice {
+            background-color: var(--primary-color);
+            text-align: center;
+            padding: 8px 16px;
+        }
+        .top-notice span {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            font-weight: 800;
+            font-size: 15px;
+            padding: 5px 18px;
+            border-radius: 20px;
+            letter-spacing: -0.3px;
+        }
+
         /* 네비게이션 및 헤더 */
         header {
             background-color: var(--white);
@@ -697,6 +714,9 @@
 </head>
 <body>
 
+    <!-- 최상단 매매 문의 -->
+    <div class="top-notice"><span>매매 문의 : 010-8859-4866</span></div>
+
     <!-- 헤더 내비게이션 -->
     <header>
         <div class="nav-container">
@@ -708,7 +728,7 @@
                 <li class="nav-item active" id="menu-main" onclick="switchPage('main')">메인</li>
                 <li class="nav-item" id="menu-sub1" onclick="switchPage('sub1')">창고 시설 안내</li>
                 <li class="nav-item" id="menu-sub2" onclick="switchPage('sub2')">보관 및 다품목 관리</li>
-                <li class="nav-item" id="menu-sub3" onclick="switchPage('sub3')">임대 및 상담 안내</li>
+                <li class="nav-item" id="menu-sub3" onclick="switchPage('sub3')">임대 · 매매 상담</li>
             </ul>
         </div>
     </header>
@@ -720,7 +740,7 @@
         <!-- Hero Section -->
         <section class="hero">
             <h1>광주·전남 물류의 중심,<br>직영 복합 창고와 풀스펙 설비로 완벽을 더하다</h1>
-            <p>중개 수수료 ZERO. 대규모 상온·저온 창고부터 지게차, 자동 랩핑기 등 물류 설비까지 모두 완비된<br>호남권 최고의 물류창고를 본사 직영 계약으로 가장 합리적으로 선점하세요.</p>
+            <p>중개 수수료 ZERO, 태양광 설비 · 주차공간 · 저온공조 · 2층 사무실 · 깔끔한 화장실까지 모두 완비된 호남권 최고의 물류창고를 경험하세요.</p>
             
             <!-- 주소 표기 영역 (서브문구와 한칸 띄어 추가) -->
             <div>
@@ -738,7 +758,7 @@
         <section class="quick-form-section">
             <div class="quick-form-bar">
                 <div class="quick-form-head">
-                    <h2><i class="fa-solid fa-bolt" style="color: var(--secondary-color);"></i> 1분 임대 견적 문의</h2>
+                    <h2><i class="fa-solid fa-bolt" style="color: var(--secondary-color);"></i> 간단 임대·매매 문의</h2>
                     <p>중개수수료 0원 · 아래 항목만 입력하면 담당자가 빠르게 연락드립니다.</p>
                 </div>
                 <form id="quickForm" class="quick-form" onsubmit="handleContactSubmit(event)">
@@ -805,7 +825,7 @@
                 <div class="strengths-list">
                     <div class="strength-item">
                         <div>
-                            <h3>유통 마진을 완전히 걷어낸 중개 수수료 ZERO 직접 계약</h3>
+                            <h3>중개 수수료 ZERO 직접 계약</h3>
                             <p>자사 소유의 물류창고를 임차인과 직접 계약하므로 불필요한 수수료 지출이 전혀 없으며, 보증금 및 임대 조건 협의가 유연하고 신속하게 이루어집니다.</p>
                         </div>
                     </div>
